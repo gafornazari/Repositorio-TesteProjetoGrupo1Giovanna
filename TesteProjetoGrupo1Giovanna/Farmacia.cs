@@ -53,7 +53,7 @@ namespace TesteProjetoGrupo1Giovanna
                 }
                 else
                 {
-                    Console.WriteLine("Erro! O Id que digitou está no formato errado, contendo mais que 6 caracteres");
+                    Console.WriteLine("Erro! O Id que digitou está no formato errado, não contendo apenas 6 caracteres");
                 }
             } while (auxId == 0);
 
@@ -66,7 +66,10 @@ namespace TesteProjetoGrupo1Giovanna
                     if (!Regex.IsMatch(nome, @"^[a-zA-Z0-9 ]+$"))
                         Console.WriteLine("O nome deve conter apenas caracteres alfanuméricos!");
                     else
+                    {
                         auxNome = 1;
+                        nome = nome.PadRight(20);
+                    }
                 }
                 else
                 {
@@ -226,7 +229,10 @@ namespace TesteProjetoGrupo1Giovanna
                     if (!Regex.IsMatch(nome, @"^[a-zA-Z0-9 ]+$"))
                         Console.WriteLine("O nome deve conter apenas caracteres alfanuméricos!");
                     else
+                    {
+                        nome = nome.PadRight(40);
                         auxNome = 1;
+                    }
                 }
                 else
                 {
@@ -270,7 +276,10 @@ namespace TesteProjetoGrupo1Giovanna
                 Console.WriteLine("Qual o valor da venda do medicamento?");
                 valorVenda = decimal.Parse(Console.ReadLine());
                 if (valorVenda > 0 && valorVenda < 10000)
+                {
+                    string formatadoValorVenda = valorVenda.ToString("F2").PadLeft(7);
                     auxVenda = 1;
+                }
                 else
                     Console.WriteLine("Valor inválido! Deve ser > 0 e < 10.000");
             } while (auxVenda == 0);
